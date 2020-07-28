@@ -20,4 +20,10 @@
 ;; Upon saving, check if buffer text looks like a script (starts with shebang).
 ;; If yes and file is not executable yet, make it executable.
 (add-hook 'after-save-hook
-    'executable-make-buffer-file-executable-if-script-p)
+	  'executable-make-buffer-file-executable-if-script-p)
+
+(defun insert-date ()
+  "Insert the current date in ISO 8601 format (like \"%Y-%m-%d\")"
+  (interactive)
+  (insert (format-time-string "%F\n" (current-time))))
+
